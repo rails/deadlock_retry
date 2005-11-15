@@ -32,8 +32,8 @@ class MockModel
 end
 
 class DeadlockRetryTest < Test::Unit::TestCase
-  DEADLOCK_ERROR = "Deadlock found when trying to get lock"
-  TIMEOUT_ERROR = "Lock wait timeout exceeded"
+  DEADLOCK_ERROR = "MySQL::Error: Deadlock found when trying to get lock"
+  TIMEOUT_ERROR = "MySQL::Error: Lock wait timeout exceeded"
 
   def test_no_errors
     assert_equal :success, MockModel.transaction { :success }
